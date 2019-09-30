@@ -3,7 +3,7 @@
 #设置端口号：8888，可随你们喜好更改
 server:
   port: 8888
-  
+
 spring:
   freemarker:
     cache: false
@@ -12,36 +12,13 @@ spring:
     view:
       prefix: /templates/
       suffix: .ftl
-
-#日志级别设置
-#com.hubu.work：为你们自己项目的包名【src/main/java/唯一子包】
-logging:
-  file: spring.log
-  level:
-    com:
-      hubu:
-        work: DEBUG
-      jdbc: ERROR
-      jdbc.resultsettable: ERROR
-      org:
-        mybatis: INFO
-        springframework: INFO
-        springframework.security: INFO
-      root: INFO
-
-#数据源设置
-#在src/main/resource下创建 db 包用来保存数据库SQL文件，SQL文件一共两个，一个为data.sql, 保存向数据库插入数据的SQL语句，schema.sql 用来保存建表语句，具体看吴笛老师的示例项目
-#url：连接h2数据库的 url，我这个 h2 是嵌入式模式，D:\JavaProgram\H2Database/test：数据库所在的本地文件位置
-#username：创建数据库时的用户名
-#password：创建数据库时的密码
-spring:
   datasource:
     data: classpath:db/data.sql
     schema: classpath:db/schema.sql
     driver-class-name: org.h2.Driver
-    url: jdbc:h2:D:\JavaProgram\H2Database/test;MODE=MySql;DB_CLOSE_DELAY=-1
-    username: root
-    password: root
+    url: jdbc:h2:~/test;MODE=MySql;DB_CLOSE_DELAY=-1
+    username: sa
+    password:
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
@@ -54,7 +31,31 @@ spring:
   h2:
     console:
       enabled: true
-      path: /h2
+      path: /h4
       settings:
         web-allow-others: true
-#h2 数据库设置，确定h2 连接正常后，启动后台Springboot框架，使用路径：localhost:+设置的端口号+/h2 访问h2 数据库的控制台
+#数据源设置
+#在src/main/resource下创建 db 包用来保存数据库SQL文件，SQL文件一共两个，一个为data.sql, 保存向数据库插入数据的SQL语句，schema.sql 用来保存建表语句，具体看吴笛老师的示例项目
+#url：连接h2数据库的 url，我这个 h2 是嵌入式模式，D:\JavaProgram\H2Database/test：数据库所在的本地文件位置
+        #username：创建数据库时的用户名
+        #password：创建数据库时的密码
+
+    #h2 数据库设置，确定h2 连接正常后，启动后台Springboot框架，使用路径：localhost:+设置的端口号+/h2 访问h2 数据库的控制台
+
+
+#日志级别设置
+#com.hubu.work：为你们自己项目的包名【src/main/java/唯一子包】
+logging:
+  file: spring.log
+  level:
+    com:
+      hubu:
+        demo: DEBUG
+      jdbc: ERROR
+      jdbc.resultsettable: ERROR
+      org:
+        springframework: INFO
+        springframework.security: INFO
+      root: INFO
+
+
